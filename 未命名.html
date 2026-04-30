@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <style>
+        /* 基础样式复位 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f4f7f6; }
+
+        /* 导航栏 */
+        nav { background: #2c3e50; color: white; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 1.5rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
+        nav ul li a:hover { color: #3498db; }
+
+        /* 主体内容布局 */
+        .container { max-width: 800px; margin: 80px auto 40px; padding: 20px; }
+
+        /* 英雄版块 (Hero Section) */
+        header { text-align: center; padding: 60px 20px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #3498db; margin-bottom: 20px; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { color: #666; font-size: 1.1rem; }
+
+        /* 介绍版块 */
+        section { margin-top: 30px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { border-left: 5px solid #3498db; padding-left: 15px; margin-bottom: 20px; }
+
+        /* 按钮样式 */
+        .btn { display: inline-block; background: #3498db; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; margin-top: 20px; transition: background 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background: #2980b9; }
+
+        /* 页脚 */
+        footer { text-align: center; padding: 20px; color: #888; font-size: 0.9rem; }
+
+        /* 简单动画 */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 1s ease-out; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">我的主页</div>
+        <ul>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#works">作品</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <div class="container fade-in">
+        <!-- 头部/个人名片 -->
+        <header>
+            <img src="/Users/yufff18/Desktop/截屏2026-04-30 下午1.37.42.png" alt="头像">
+            <h1>你好，我是 [你的名字]</h1>
+            <p>一名正在学习网页开发的探索者 / 终身学习者</p>
+            <button class="btn" onclick="sayHello()">打个招呼</button>
+        </header>
+
+        <!-- 关于我 -->
+        <section id="about">
+            <h2>关于我</h2>
+            <p>这里可以写写你的自我介绍。比如你擅长的技术、你的兴趣爱好，或者你目前正在推进的项目。网页开发是一件非常有成就感的事情！</p>
+        </section>
+
+        <!-- 作品/项目 -->
+        <section id="works">
+            <h2>我的作品</h2>
+            <p>暂时还没有作品？没关系，很快你就会填满这里的。</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>第一个项目：基础 HTML 页面</li>
+                <li>第二个项目：响应式简历</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2026 由 Gemini 协作完成</p>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的交互功能
+        function sayHello() {
+            alert('你好！欢迎来到我的网页！👋');
+        }
+    </script>
+</body>
+</html>
