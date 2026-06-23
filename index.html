@@ -3,76 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>乔迁之喜 - 诚挚邀请</title>
+    <title>乔迁之喜 · 诚挚邀请</title>
     <style>
-        /* 基础样式 */
+        /* 基础与华丽红背景 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; background: #fdfaf6; color: #4a4a4a; line-height: 1.8; }
+        body { font-family: 'STSong', 'Songti SC', 'PingFang SC', serif; background: radial-gradient(circle, #b81c22 0%, #7a0c10 100%); color: #333; min-height: 100vh; padding: 30px 15px; }
 
-        /* 顶部欢迎图/大背景 */
-        .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('home.jpg') center/cover no-repeat; height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
-        .hero h1 { font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        /* 华丽主卡片 */
+        .card { max-width: 500px; margin: 40px auto; background: #fffdf9; border: 3px double #d4af37; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(212,175,55,0.2); padding: 40px 25px; position: relative; overflow: hidden; }
 
-        /* 主体容器 */
-        .container { max-width: 600px; margin: -30px auto 40px; padding: 30px 20px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(163, 143, 119, 0.15); position: relative; z-index: 10; width: 90%; }
+        /* 中式角花装饰 */
+        .card::before, .card::after { content: ''; position: absolute; width: 30px; height: 30px; border: 2px solid #d4af37; }
+        .card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
-        /* 邀请词 */
-        .invitation-text { text-align: center; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px dashed #e6dfd5; }
-        .invitation-text h2 { color: #c89666; font-size: 1.5rem; margin-bottom: 15px; }
-        .invitation-text p { margin-bottom: 8px; font-size: 1.05rem; }
+        /* 顶部大标题（烫金视觉） */
+        .title-container { text-align: center; margin-bottom: 30px; }
+        .main-title { font-size: 2.8rem; color: #a91e23; font-weight: bold; letter-spacing: 6px; margin-bottom: 5px; text-shadow: 1px 1px 0px #d4af37, 2px 2px 0px rgba(0,0,0,0.1); }
+        .sub-title { font-size: 1rem; color: #d4af37; font-weight: 6px; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* 详情板块（时间和地点） */
-        .info-section { background: #fbf9f6; padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #c89666; }
-        .info-title { font-weight: bold; color: #c89666; margin-bottom: 5px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
-        .info-content { font-size: 1.05rem; color: #5a5a5a; }
+        /* 华丽分割线 */
+        .gold-line { width: 60%; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 20px auto; position: relative; }
+        .gold-line::after { content: '◆'; color: #d4af37; position: absolute; top: -9px; left: 50%; transform: translateX(-50%); background: #fffdf9; padding: 0 6px; font-size: 0.8rem; }
 
-        /* 按钮样式 */
-        .btn { display: block; width: 100%; background: #c89666; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-size: 1.1rem; border: none; cursor: pointer; transition: background 0.3s; margin-top: 15px; box-shadow: 0 4px 10px rgba(200, 150, 102, 0.3); }
-        .btn:hover { background: #b38153; }
+        /* 邀请正文 */
+        .content-box { text-align: center; font-size: 1.15rem; line-height: 2.2; color: #4a4a4a; margin-bottom: 30px; padding: 0 10px; }
+        .content-box p strong { color: #a91e23; font-size: 1.25rem; }
 
-        /* 页脚 */
-        footer { text-align: center; padding: 20px; color: #aaa; font-size: 0.85rem; }
+        /* 倒计时板块 */
+        .countdown-container { background: #f4ece1; border: 1px solid #e1d4c1; border-radius: 8px; padding: 15px; text-align: center; margin-bottom: 25px; }
+        .countdown-title { font-size: 0.9rem; color: #7a0c10; letter-spacing: 1px; margin-bottom: 5px; }
+        .countdown-timer { font-size: 1.4rem; color: #a91e23; font-weight: bold; }
+
+        /* 详情板块 */
+        .detail-item { border-left: 3px solid #a91e23; padding-left: 15px; margin-bottom: 20px; text-align: left; background: rgba(169,30,35,0.03); padding: 12px 15px; border-radius: 0 8px 8px 0; }
+        .detail-label { font-weight: bold; color: #a91e23; font-size: 1.1rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .detail-text { font-size: 1.05rem; color: #333; }
+
+        /* 华丽金色按钮 */
+        .btn-gold { display: block; width: 100%; background: linear-gradient(135deg, #e6c667 0%, #c59f37 100%); color: #520608; text-align: center; padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; border: 1px solid #b38f2e; cursor: pointer; transition: all 0.3s; margin-top: 15px; box-shadow: 0 6px 15px rgba(197,159,55,0.4); text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
+        .btn-gold:hover { background: linear-gradient(135deg, #f0d57d 0%, #d4af37 100%); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(197,159,55,0.6); }
+        .btn-gold:active { transform: translateY(1px); }
+
+        /* 动效 */
+        .fade-in { animation: fadeInEffect 1.2s ease-out; }
+        @keyframes fadeInEffect { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>WE ARE MOVING</h1>
-        <p>诚邀您见证我们的乔迁之喜</p>
-    </div>
-
-    <div class="container">
-        <div class="invitation-text">
-            <h2>良辰吉日 谨呈华翰</h2>
-            <p>新居落成，满怀喜悦。</p>
-            <p>过去的时光里，感谢有您的陪伴与支持。</p>
-            <p>特设薄酒，诚邀您及家人移步新居，</p>
-            <p>共叙友情，分享这份乔迁的快乐！</p>
+    <div class="card fade-in">
+        <div class="title-container">
+            <div class="main-title">乔迁之喜</div>
+            <div class="sub-title">Joyful Moving Invitation</div>
         </div>
 
-        <div class="info-section">
-            <div class="info-title">📅 宴请时间</div>
-            <div class="info-content"><strong>2026年X月X日（星期X）中午 12:00</strong></div>
+        <div class="gold-line"></div>
+
+        <div class="content-box">
+            <p><strong>谨呈华翰 诚邀光临</strong></p>
+            <p>吉日迁居，万事如意。</p>
+            <p>阖家秉承喜庆，特设薄酒宴请尊客。</p>
+            <p>诚邀您及家人移步新居，</p>
+            <p>共叙情谊，同贺乔迁之喜！</p>
         </div>
 
-        <div class="info-section">
-            <div class="info-title">📍 新居地址</div>
-            <div id="addressText" class="info-content">XX省XX市XX区XX路XX小区XX号楼XX室</div>
-            <button class="btn" onclick="copyAddress()">📋 点击复制详细地址</button>
+        <div class="countdown-container">
+            <div class="countdown-title">✨ 距离赴宴还有 ✨</div>
+            <div id="countdown" class="countdown-timer">正在计算良辰吉时...</div>
         </div>
 
-        <footer>
-            <p>期待您的光临 ✨</p>
-        </footer>
+        <div class="detail-item">
+            <div class="detail-label">📅 赴宴时间</div>
+            <div class="detail-text"><strong>2026年10月18日</strong> (农历九月初九) 中午 12:00</div>
+        </div>
+
+        <div class="detail-item">
+            <div class="detail-label">📍 新居府邸</div>
+            <div id="addressText" class="detail-text">XX省XX市XX区华丽大路88号黄金豪庭1号楼1808室</div>
+        </div>
+
+        <button class="btn-gold" onclick="copyAddress()">📋 一键复制府邸地址 · 导航赴宴</button>
     </div>
 
     <script>
-        // 一键复制地址功能
+        // 设置你搬家的目标日期 (年, 月[0-11], 日, 时, 分)
+        // 注意：JavaScript的月份是从0开始的，9代表10月
+        const targetDate = new Date(2026, 9, 18, 12, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById("countdown").innerText = "好礼已备，恭候光临！✨";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerText = `${days} 天 ${hours} 小时 ${minutes} 分钟`;
+        }
+
+        // 每分钟更新一次倒计时
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+
+        // 复制地址功能
         function copyAddress() {
             var address = document.getElementById("addressText").innerText;
             navigator.clipboard.writeText(address).then(function() {
-                alert("地址已复制到剪贴板，快去地图软件导航吧！🚗");
+                alert("府邸地址已成功复制到剪贴板！✨ 期待您的光临！🚗");
             }, function() {
                 alert("复制失败，请手动复制地址。");
             });
