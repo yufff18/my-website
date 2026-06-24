@@ -5,119 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>乔迁之喜 · 诚挚邀请</title>
     <style>
-        /* 基础与华丽红背景 */
+        /* 基础与华丽深红背景 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'STSong', 'Songti SC', 'PingFang SC', serif; background: radial-gradient(circle, #b81c22 0%, #7a0c10 100%); color: #333; min-height: 100vh; padding: 30px 15px; }
+        body { font-family: 'STSong', 'Songti SC', 'PingFang SC', serif; background: radial-gradient(circle, #b81c22 0%, #7a0c10 100%); color: #333; line-height: 1.8; padding: 20px 10px; }
 
-        /* 华丽主卡片 */
-        .card { max-width: 500px; margin: 40px auto; background: #fffdf9; border: 3px double #d4af37; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(212,175,55,0.2); padding: 40px 25px; position: relative; overflow: hidden; }
+        /* 长辈/主卡片容器 */
+        .wrapper { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
+        .card { background: #fffdf9; border: 3px double #d4af37; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(212,175,55,0.15); padding: 35px 22px; position: relative; overflow: hidden; }
 
-        /* 中式角花装饰 */
-        .card::before, .card::after { content: ''; position: absolute; width: 30px; height: 30px; border: 2px solid #d4af37; }
+        /* 中式古典四角边框装饰 */
+        .card::before, .card::after { content: ''; position: absolute; width: 24px; height: 24px; border: 2px solid #d4af37; }
         .card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
         .card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
-        /* 顶部大标题（烫金视觉） */
-        .title-container { text-align: center; margin-bottom: 30px; }
-        .main-title { font-size: 2.8rem; color: #a91e23; font-weight: bold; letter-spacing: 6px; margin-bottom: 5px; text-shadow: 1px 1px 0px #d4af37, 2px 2px 0px rgba(0,0,0,0.1); }
-        .sub-title { font-size: 1rem; color: #d4af37; font-weight: 6px; letter-spacing: 4px; text-transform: uppercase; }
+        /* 统一中式华丽标题样式 */
+        .section-badge { display: table; margin: 0 auto 25px; background: linear-gradient(135deg, #e6c667 0%, #c59f37 100%); color: #fffdf9; font-weight: bold; font-size: 1.15rem; letter-spacing: 4px; padding: 6px 30px; border-radius: 50px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); border: 1px solid #b38f2e; box-shadow: 0 4px 10px rgba(197,159,55,0.3); }
 
-        /* 华丽分割线 */
-        .gold-line { width: 60%; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 20px auto; position: relative; }
-        .gold-line::after { content: '◆'; color: #d4af37; position: absolute; top: -9px; left: 50%; transform: translateX(-50%); background: #fffdf9; padding: 0 6px; font-size: 0.8rem; }
+        /* 【版块一：封面大厅】 */
+        .couplet-container { display: flex; justify-content: space-between; align-items: stretch; margin: 20px 0; gap: 10px; }
+        .couplet { width: 35px; background: #a91e23; color: #fdf5e6; font-size: 0.95rem; font-weight: bold; padding: 15px 5px; text-align: center; border-radius: 4px; line-height: 1.5; border: 1px solid #d4af37; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .center-title-box { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .big-title { font-size: 3.2rem; color: #a91e23; font-weight: bold; writing-mode: vertical-rl; letter-spacing: 10px; text-shadow: 1px 1px 0px #d4af37, 2px 2px 0px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        .seal-box { border: 1px solid #a91e23; border-radius: 50%; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; color: #a91e23; font-weight: bold; font-size: 0.75rem; writing-mode: vertical-rl; padding: 2px; margin-top: 10px; letter-spacing: 1px; }
+        .cover-footer { text-align: center; margin-top: 20px; color: #a91e23; font-weight: bold; }
+        .cover-footer h4 { font-size: 1.4rem; letter-spacing: 3px; }
+        .cover-footer p { color: #d4af37; font-size: 0.95rem; letter-spacing: 5px; text-transform: uppercase; margin-top: 3px; }
 
-        /* 邀请正文 */
-        .content-box { text-align: center; font-size: 1.15rem; line-height: 2.2; color: #4a4a4a; margin-bottom: 30px; padding: 0 10px; }
-        .content-box p strong { color: #a91e23; font-size: 1.25rem; }
+        /* 【版块二：诚挚邀请】 */
+        .invite-text { text-align: justify; font-size: 1.05rem; line-height: 2.1; color: #444; text-indent: 2em; margin-bottom: 25px; }
+        .signature-box { text-align: right; margin-top: 20px; font-size: 1.05rem; color: #222; }
+        .signature-box strong { color: #a91e23; font-size: 1.15rem; }
 
-        /* 倒计时板块 */
-        .countdown-container { background: #f4ece1; border: 1px solid #e1d4c1; border-radius: 8px; padding: 15px; text-align: center; margin-bottom: 25px; }
-        .countdown-title { font-size: 0.9rem; color: #7a0c10; letter-spacing: 1px; margin-bottom: 5px; }
-        .countdown-timer { font-size: 1.4rem; color: #a91e23; font-weight: bold; }
+        /* 【版块三：宴席详情】 */
+        .gold-panel { background: #fdf8f0; border: 1px dashed #d4af37; border-radius: 12px; padding: 20px 15px; margin-bottom: 15px; text-align: center; }
+        .gold-panel-title { color: #a91e23; font-weight: bold; font-size: 0.95rem; margin-bottom: 8px; letter-spacing: 1px; }
+        .big-time { font-size: 1.8rem; color: #a91e23; font-weight: bold; margin-bottom: 5px; }
+        .lunar-time { font-size: 1.05rem; color: #c59f37; font-weight: bold; }
 
-        /* 详情板块 */
-        .detail-item { border-left: 3px solid #a91e23; padding-left: 15px; margin-bottom: 20px; text-align: left; background: rgba(169,30,35,0.03); padding: 12px 15px; border-radius: 0 8px 8px 0; }
-        .detail-label { font-weight: bold; color: #a91e23; font-size: 1.1rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
-        .detail-text { font-size: 1.05rem; color: #333; }
+        /* 【版块四：流程安排】 */
+        .timeline { position: relative; margin: 10px auto; padding-left: 30px; width: 90%; }
+        .timeline::before { content: ''; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: #d4af37; }
+        .timeline-item { position: relative; margin-bottom: 25px; text-align: left; }
+        .timeline-dot { position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; background: #fffdf9; border: 3px solid #a91e23; border-radius: 50%; z-index: 2; }
+        .timeline-time { font-weight: bold; color: #a91e23; font-size: 1.1rem; margin-right: 15px; display: inline-block; width: 60px; }
+        .timeline-desc { font-size: 1.05rem; color: #444; display: inline-block; }
 
+        /* 【版块五：地址导航】 */
+        .map-placeholder { width: 100%; height: 180px; background: #eee; border: 1px solid #ddd; border-radius: 8px; margin: 15px 0; display: flex; justify-content: center; align-items: center; color: #666; font-size: 0.9rem; font-weight: normal; }
+        .address-box { font-size: 1rem; color: #333; text-align: left; background: #fbf9f5; padding: 15px; border-radius: 8px; border-left: 4px solid #a91e23; margin-bottom: 15px; }
+        .address-title { font-weight: bold; color: #a91e23; margin-bottom: 5px; }
+        
         /* 华丽金色按钮 */
-        .btn-gold { display: block; width: 100%; background: linear-gradient(135deg, #e6c667 0%, #c59f37 100%); color: #520608; text-align: center; padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; border: 1px solid #b38f2e; cursor: pointer; transition: all 0.3s; margin-top: 15px; box-shadow: 0 6px 15px rgba(197,159,55,0.4); text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
-        .btn-gold:hover { background: linear-gradient(135deg, #f0d57d 0%, #d4af37 100%); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(197,159,55,0.6); }
-        .btn-gold:active { transform: translateY(1px); }
+        .btn-gold { display: block; width: 100%; background: linear-gradient(135deg, #e6c667 0%, #c59f37 100%); color: #520608; text-align: center; padding: 12px; border-radius: 8px; font-size: 1rem; font-weight: bold; border: 1px solid #b38f2e; cursor: pointer; transition: all 0.3s; margin-top: 10px; box-shadow: 0 4px 12px rgba(197,159,55,0.35); text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
+        .btn-gold:hover { background: linear-gradient(135deg, #f0d57d 0%, #d4af37 100%); transform: translateY(-1px); box-shadow: 0 6px 15px rgba(197,159,55,0.5); }
 
-        /* 动效 */
-        .fade-in { animation: fadeInEffect 1.2s ease-out; }
-        @keyframes fadeInEffect { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* 优雅淡入动效 */
+        .fade-in { animation: filterFade 1.2s ease-out; }
+        @keyframes filterFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div class="card fade-in">
-        <div class="title-container">
-            <div class="main-title">乔迁之喜</div>
-            <div class="sub-title">Joyful Moving Invitation</div>
+    <div class="wrapper fade-in">
+
+        <!-- 1. 封面大厅板块 (基于 IMG_0410.jpg) -->
+        <div class="card" id="cover">
+            <div class="couplet-container">
+                <div class="couplet">迁新居启朱门室有芝兰户纳千祥承景运</div>
+                <div class="center-title-box">
+                    <div class="big-title">乔迁之喜</div>
+                    <div class="seal-box">邀请函</div>
+                </div>
+                <div class="couplet">弘骏业抒壮志人逢盛世家传万卷继书香</div>
+            </div>
+            <div class="cover-footer">
+                <h4>新居乔迁宴</h4>
+                <p>八月十六号 · HOUSEWARMING</p>
+            </div>
         </div>
 
-        <div class="gold-line"></div>
-
-        <div class="content-box">
-            <p><strong>谨呈华翰 诚邀光临</strong></p>
-            <p>吉日迁居，万事如意。</p>
-            <p>阖家秉承喜庆，特设薄酒宴请尊客。</p>
-            <p>诚邀您及家人移步新居，</p>
-            <p>共叙情谊，同贺乔迁之喜！</p>
+        <!-- 2. 诚挚邀请板块 (基于 IMG_0411.jpg) -->
+        <div class="card" id="invitation">
+            <div class="section-badge">诚挚邀请</div>
+            <div class="invite-text">
+                您好！承蒙各位亲朋好友的关心和支持，我们顺利地搬迁了新居。为表示感谢，谨定于8月16日，中午时分，在家中举办乔迁喜宴，略备薄酒，诚邀您携同家人一起参加！
+            </div>
+            <div class="invite-text" style="margin-top: -15px;">
+                新居落成，喜悦满怀，期待与您分享这份幸福！您的到来将是我们最大的荣幸！此致敬礼！
+            </div>
+            <div class="signature-box">
+                <strong>姚兰 & 朴点太</strong> 夫妇敬邀<br>
+                <span style="color: #666; font-size: 0.9rem;">8月16日</span>
+            </div>
         </div>
 
-        <div class="countdown-container">
-            <div class="countdown-title">✨ 距离赴宴还有 ✨</div>
-            <div id="countdown" class="countdown-timer">正在计算良辰吉时...</div>
+        <!-- 3. 宴席详情板块 (基于 IMG_0412.jpg) -->
+        <div class="card" id="details">
+            <div class="section-badge">宴席详情</div>
+            
+            <div class="gold-panel">
+                <div class="gold-panel-title">▼ 谨定于 ——</div>
+                <div class="big-time">8月16日 中午11:30</div>
+                <div class="lunar-time">【 农历七月初四 星期日 】</div>
+            </div>
+
+            <div class="gold-panel">
+                <div class="gold-panel-title">▼ 席设 ——</div>
+                <div style="font-size: 1.1rem; font-weight: bold; color: #a91e23; margin: 5px 0;">新居府邸</div>
+                <div style="font-size: 0.95rem; color: #555;">敬备薄酒 恭候光临</div>
+            </div>
+
+            <div class="gold-panel">
+                <div class="gold-panel-title">▼ 联系电话 ——</div>
+                <div style="font-size: 1.15rem; font-weight: bold; color: #333; margin-top: 5px;">
+                    姚兰：<span style="color: #a91e23;">+82 010-7762-4280</span>
+                </div>
+            </div>
         </div>
 
-        <div class="detail-item">
-            <div class="detail-label">📅 赴宴时间</div>
-            <div class="detail-text"><strong>2026年10月18日</strong> (农历九月初九) 中午 12:00</div>
+        <!-- 4. 流程安排板块 (基于 IMG_0413.jpg) -->
+        <div class="card" id="timeline">
+            <div class="section-badge">流程安排</div>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">09:00</span><span class="timeline-desc">新居入伙仪式</span></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">11:00</span><span class="timeline-desc">来宾签到入座</span></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">11:30</span><span class="timeline-desc">乔迁喜宴开席</span></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">12:00</span><span class="timeline-desc">主家答谢致辞</span></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">14:00</span><span class="timeline-desc">欢迎参观新居</span></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-time">18:00</span><span class="timeline-desc">暖房晚宴</span></div>
+            </div>
         </div>
 
-        <div class="detail-item">
-            <div class="detail-label">📍 新居府邸</div>
-            <div id="addressText" class="detail-text">XX省XX市XX区华丽大路88号黄金豪庭1号楼1808室</div>
+        <!-- 5. 地址导航板块 (基于 IMG_0414.jpg) -->
+        <div class="card" id="navigation">
+            <div class="section-badge">地址导航</div>
+            
+            <!-- 这里为你预留了和图片一模一样的地图展示区域 -->
+            <div class="map-placeholder">
+                📍 韩国大田广域市三星来美安公寓地图区
+            </div>
+
+            <div class="address-box">
+                <div class="address-title">中文府邸地址：</div>
+                <div id="cnAddress" style="font-weight: bold;">大田广域市西区佳状洞55 三星来美安公寓205栋1901号</div>
+                <button class="btn-gold" style="padding: 6px; font-size: 0.85rem;" onclick="copyTxt('cnAddress')">📋 复制中文地址</button>
+            </div>
+
+            <div class="address-box">
+                <div class="address-title">韩文府邸地址 (方便复制直接导航)：</div>
+                <div id="krAddress" style="color: #555;">대전 서구 가장동 55</div>
+                <button class="btn-gold" style="padding: 6px; font-size: 0.85rem;" onclick="copyTxt('krAddress')">📋 复制韩文地址</button>
+            </div>
+
+            <div class="address-box" style="border-left-color: #c59f37;">
+                <div class="address-title" style="color: #c59f37;">☏ 联络电话：</div>
+                <div>+82 010-7762-4280</div>
+            </div>
         </div>
 
-        <button class="btn-gold" onclick="copyAddress()">📋 一键复制府邸地址 · 导航赴宴</button>
     </div>
 
     <script>
-        // 设置你搬家的目标日期 (年, 月[0-11], 日, 时, 分)
-        // 注意：JavaScript的月份是从0开始的，9代表10月
-        const targetDate = new Date(2026, 9, 18, 12, 0, 0).getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference < 0) {
-                document.getElementById("countdown").innerText = "好礼已备，恭候光临！✨";
-                return;
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById("countdown").innerText = `${days} 天 ${hours} 小时 ${minutes} 分钟`;
-        }
-
-        // 每分钟更新一次倒计时
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
-
-        // 复制地址功能
-        function copyAddress() {
-            var address = document.getElementById("addressText").innerText;
-            navigator.clipboard.writeText(address).then(function() {
-                alert("府邸地址已成功复制到剪贴板！✨ 期待您的光临！🚗");
+        // 通用复制文本函数
+        function copyTxt(elementId) {
+            var txt = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(txt).then(function() {
+                alert("地址已成功复制到剪贴板！✨");
             }, function() {
-                alert("复制失败，请手动复制地址。");
+                alert("复制失败，请手动复制。");
             });
         }
     </script>
